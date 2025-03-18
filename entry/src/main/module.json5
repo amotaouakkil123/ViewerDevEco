@@ -5,9 +5,7 @@
     "description": "$string:module_desc",
     "mainElement": "EntryAbility",
     "deviceTypes": [
-      "phone",
-      "tablet",
-      "2in1"
+      "default"
     ],
     "deliveryWithInstall": true,
     "installationFree": false,
@@ -37,7 +35,7 @@
     "extensionAbilities": [
       {
         "name": "EntryBackupAbility",
-        "srcEntry": "./ets/entrybackupability/EntryBackupAbility.ets",
+        "srcEntry": "./ets/entrybackupability/EntryBackupAbility.ts",
         "type": "backup",
         "exported": false,
         "metadata": [

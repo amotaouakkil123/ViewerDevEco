@@ -1,6 +1,6 @@
-import { AbilityConstant, UIAbility, Want } from '@ohos.app.ability.UIAbilityKit';
-import { hilog } from '@ohos.hilog';
-import { window } from '@ohos.window';
+import UIAbility from '@ohos.app.ability.UIAbility';
+import hilog from '@ohos.hilog';
+import window from '@ohos.window';
 
 export class Logger {
   static DOMAIN: number = 0xFF00;
@@ -25,17 +25,18 @@ export class Logger {
 }
 
 export default class EntryAbility extends UIAbility {
-  onCreate(want: Want, launchParam: AbilityConstant.LaunchParam): void {
+  onCreate(want, launchParam): void {
+    Logger.info('Ability onCreate');
     hilog.info(0x0000, 'testTag', '%{public}s', 'Ability onCreate');
   }
 
   onDestroy(): void {
-    hilog.info(0x0000, 'testTag', '%{public}s', 'Ability onDestroy');
+    Logger.info('Ability onDestroy');
   }
 
   onWindowStageCreate(windowStage: window.WindowStage): void {
     // Main window is created, set main page for this ability
-    hilog.info(0x0000, 'testTag', '%{public}s', 'Ability onWindowStageCreate');
+    Logger.info('Ability onWindowStageCreate');
     globalThis.abilityContext = this.context;
     globalThis.context = this.context;
 
@@ -50,16 +51,16 @@ export default class EntryAbility extends UIAbility {
 
   onWindowStageDestroy(): void {
     // Main window is destroyed, release UI related resources
-    hilog.info(0x0000, 'testTag', '%{public}s', 'Ability onWindowStageDestroy');
+    Logger.info('Ability onWindowStageDestroy');
   }
 
   onForeground(): void {
     // Ability has brought to foreground
-    hilog.info(0x0000, 'testTag', '%{public}s', 'Ability onForeground');
+    Logger.info('Ability onForeground');
   }
 
   onBackground(): void {
     // Ability has back to background
-    hilog.info(0x0000, 'testTag', '%{public}s', 'Ability onBackground');
+    Logger.info('Ability onWindowStageDestroy');
   }
 };

@@ -1,19 +1,15 @@
-import { hilog } from '@kit.PerformanceAnalysisKit';
 import fs from '@ohos.file.fs';
+import hilog from '@ohos.file.fs';
 
 @Entry
 @Component
 struct Index {
-  @State message: string = 'Skia_Viewer';
+  @State message: string = 'Viewer';
   xcomponentController: XComponentController = new XComponentController();
   private xComponentContext: Record<string, () => void> = {};
 
   build() {
     Flex({ direction: FlexDirection.Column, alignItems: ItemAlign.Center, justifyContent: FlexAlign.Center}) {
-      Text(this.message)// Title "Skia_Viewer
-        .fontSize(50)
-        .fontWeight(FontWeight.Bold)
-        .onClick(() => {})
       XComponent({
         id: 'xcomponentId',
         type: 'surface',
@@ -27,8 +23,8 @@ struct Index {
           }
         })
         .onDestroy(() => {})
-        .width('80%')
-        .height('50%')
+        .width('100%')
+        .height('100%')
     }
     .width('100%')
     .height('100%')
