@@ -1,0 +1,2 @@
+@echo off
+java -jar hap-sign-tool.jar sign-app -keyAlias "openharmony application release" -signAlg "SHA256withECDSA" -mode "localSign" -appCertFile "OpenHarmonyApplication.pem" -inFile "entry-default-unsigned.hap" -keystoreFile "OpenHarmony.p12" -profileFile "openharmony_release_sx.p7b" -keyPwd "123456" -keystorePwd "123456" -outFile "entry-default-signed.hap"
