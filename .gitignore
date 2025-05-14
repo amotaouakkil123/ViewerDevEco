@@ -11,3 +11,7 @@
 **/.test
 /.appanalyzer
 /AppScope/resources/resfile
+/entry/libs/arm64-v8a/libviewer.so
+oh-package-lock*
+/signing/*.hap
+/signing/*.p7b

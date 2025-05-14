@@ -16,8 +16,12 @@ struct Index {
 
   aboutToDisappear(): void {}
 
-  setGanesh(): void {
-    OhosSkiaApp.setGanesh();
+  setGaneshGL(): void {
+    OhosSkiaApp.setGaneshGL();
+  }
+
+  setGaneshVk(): void {
+    OhosSkiaApp.setGaneshVk();
   }
 
   setGraphiteVulkan(): void {
@@ -39,7 +43,10 @@ struct Index {
             index: 0}) {
         TabContent() {
           ContentSlot(this.viewerContent) // In theory, this.nodeContent should not be copied everytime
-        }.tabBar("Ganesh")
+        }.tabBar("Ganesh GL")
+        TabContent() {
+          ContentSlot(this.viewerContent)
+        }.tabBar("Ganesh Vk")
         TabContent() {
           ContentSlot(this.viewerContent)
         }.tabBar("Graphite")
@@ -48,10 +55,12 @@ struct Index {
         }.tabBar("Dawn")
       }.onChange((index: number) => {
         if (index == 0) {
-          OhosSkiaApp.setGanesh();
-        } else if (index == 1) {
-          OhosSkiaApp.setGraphiteVulkan();
+          OhosSkiaApp.setGaneshGL();
+        } if (index == 1) {
+          OhosSkiaApp.setGaneshVk();
         } else if (index == 2) {
+          OhosSkiaApp.setGraphiteVulkan();
+        } else if (index == 3) {
           OhosSkiaApp.setGraphiteDawn();
         }
       })
